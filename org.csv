@@ -1,4 +1,4 @@
-first_name,last_name,title,pronouns,office_building,department,phone,email,area,imageUrl,id,parentId,department_color
+first_name,last_name,title,pronouns,office_building,department,phone,email,areas,imageUrl,id,parentId,department_color
 Sasha,Masoomi,Assistant Director,,Warfield Hall,Residence Life,513-529-9276,masooms@miamioh.edu,"Pro Staff Training and Development, NRHH",https://www.miamioh.edu/student-life/residence-life/_files/images/content/headshots/Masoomi1.jpg,Masoomi-Sasha,Abowitz-Rob,#EFDB72
 Erik,Sorensen,Assistant Director,,Warfield Hall,Residence Life,513-529-4002,sorense@miamioh.edu,"Assessment, ORL Advisory Board",https://www.miamioh.edu/student-life/residence-life/_files/images/content/headshots/Sorensen.jpg,Sorensen-Erik,Abowitz-Rob,#EFDB72
 Katie,Wilson,Director,,Armstrong Student Center,Armstrong Student Center,513-529-2270,wilso106@miamioh.edu,Armstrong Student Center Board; Building & Event Policies; Assessment Initiatives; Administration of Armstrong Student Center,https://www.miamioh.edu/student-life/armstrong-student-center/_files/staff-photos/katie-wilson.jpg,Wilson-Katie,Armstrong,#FF8033
