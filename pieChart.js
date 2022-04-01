@@ -416,7 +416,7 @@ class PieChart {
           if (d.data.name == ("Aaron Shrimplin" || "John Millard")) 
           return 'Division of'
           else
-            return d.data.string.length > 0 ? d.data.key : 'Dean of'
+            return d.data.string.length > 0 ? d.data.key : ''
         })
         .attr('x', d => {
           let x = arcLabel.centroid(this.correct(d))[0];
@@ -443,7 +443,7 @@ class PieChart {
           selector: 'pie-percent-texts',
           data: d => [d]
         })
-        .text(d => d.data.string.length>0 ? d.data.string : 'University Libraries')
+        .text(d => d.data.string.length>0 ? d.data.string : '')
         .attr('alignment-baseline', 'middle')
         .attr('x', d => {
           let textWidth =
