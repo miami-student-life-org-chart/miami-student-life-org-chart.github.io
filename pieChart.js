@@ -361,7 +361,7 @@ class PieChart {
         .on('mouseleave.color', function(event, d) {
           d3.select(this).attr('fill', that.getColor(d));
         });
-  
+
       pieG
         .patternify({
           tag: 'polyline',
@@ -369,6 +369,7 @@ class PieChart {
           data: d => [d]
         })
         .attr('points', d => {
+          if (d.data.string != 0) {
           let textWidth =
             this.getTextWidth(d.data.key || '', { fontSize: defaultFontSize }) +
             labelMargin;
@@ -390,7 +391,7 @@ class PieChart {
             ${arcLabel.centroid(this.correct(d))[0] * 1.55},
             ${arcLabel.centroid(this.correct(d))[1] + .5 }
             `;
-          }
+          }}
         })
         .attr('stroke', defaultTextFill)
         .attr('fill', 'none')
@@ -407,15 +408,17 @@ class PieChart {
         .attr('cy', d => arc.centroid(d)[1] * 1.11)
         .style('opacity', this.getLabelOpacity)
         .attr('fill', '#FFFFFF')
-        .attr('r', 2)
+        .attr('stroke', '#999999')
+        .attr('r', d => {
+          if (d.data.string != 0) 
+          {return 2}
+          else return 0;
+        })
         .attr('pointer-events', 'none');
   
       pieG
         .patternify({ tag: 'text', selector: 'pie-texts', data: d => [d] })
         .text(d => {
-          if (d.data.last_name == ("")) 
-          return 'Division of'
-          else
             return d.data.string.length > 0 ? d.data.key : ''
         })
         .attr('x', d => {
