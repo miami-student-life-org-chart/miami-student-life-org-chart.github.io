@@ -375,12 +375,12 @@ class PieChart {
           if (this.isRightSide(d)) {
             textWidth = -textWidth;
           return `
-      ${arc.centroid(d)[0] * 0.6},
-      ${arc.centroid(d)[1] * 1.25} 
-      ${arcLabel.centroid(this.correct(d))[0] * 0.75 + d.xOffset},
-      ${arcLabel.centroid(this.correct(d))[1] * 1.25 + d.yOffset} 
-      ${arcLabel.centroid(this.correct(d))[0] - textWidth + d.xOffset},
-      ${arcLabel.centroid(this.correct(d))[1] * 1.25 + d.yOffset}
+      ${arc.centroid(d)[0] - textWidth/16 - 4.86},
+      ${arc.centroid(d)[1] * 1.15 - 1} 
+      ${arc.centroid(d)[0] - textWidth/8},
+      ${arcLabel.centroid(this.correct(d))[1] + d.yOffset/2} 
+      ${arcLabel.centroid(this.correct(d))[0] - textWidth * 1.25 + d.xOffset},
+      ${arcLabel.centroid(this.correct(d))[1] + d.yOffset/2}
           `} else {
             return `
             ${arc.centroid(d)[0] * 0.6},
@@ -404,7 +404,7 @@ class PieChart {
           data: d => [d]
         })
         .attr('cx', d => arc.centroid(d)[0] * 0.6)
-        .attr('cy', d => arc.centroid(d)[1] * 1.25)
+        .attr('cy', d => arc.centroid(d)[1] * 1.11)
         .style('opacity', this.getLabelOpacity)
         .attr('fill', '#FFFFFF')
         .attr('r', 2)
@@ -413,14 +413,14 @@ class PieChart {
       pieG
         .patternify({ tag: 'text', selector: 'pie-texts', data: d => [d] })
         .text(d => {
-          if (d.data.name == ("Aaron Shrimplin" || "John Millard")) 
+          if (d.data.last_name == ("")) 
           return 'Division of'
           else
             return d.data.string.length > 0 ? d.data.key : ''
         })
         .attr('x', d => {
           let x = arcLabel.centroid(this.correct(d))[0];
-          if (this.isRightSide(d)) x += labelMargin - 5;
+          if (this.isRightSide(d)) x += labelMargin + 5;
           else x -= labelMargin - 25 ;
           return x + d.xOffset;
         })
@@ -431,7 +431,7 @@ class PieChart {
         .attr('font-size', defaultFontSize)
         .attr('y', d => {
           if(this.isRightSide(d))
-          return arcLabel.centroid(this.correct(d))[1] * 1.25 - 2 + d.yOffset;
+          return arcLabel.centroid(this.correct(d))[1] * 0.98 - 2 + d.yOffset;
           else return arcLabel.centroid(this.correct(d))[1] * 0.85;
         })
         .attr('fill', defaultTextFill)
@@ -452,14 +452,16 @@ class PieChart {
             percentCircleRadius;
           if (this.isRightSide(d)) {
             textWidth = -textWidth;
-          return arcLabel.centroid(this.correct(d))[0] - textWidth/2.5;
+          return arcLabel.centroid(this.correct(d))[0] - textWidth/2 + 5;
           } else {
           return arcLabel.centroid(this.correct(d))[0] * 1.15 + 2;
           }
         })
         .attr('y', d => {
-          if(this.isRightSide(d)) return arcLabel.centroid(this.correct(d))[1] * 1.35;
-          else return arcLabel.centroid(this.correct(d))[1] * 1.05 - 1;
+          if(this.isRightSide(d)) 
+          return arcLabel.centroid(this.correct(d))[1]* 1.1;
+          else 
+          return arcLabel.centroid(this.correct(d))[1] * 1.05 - 1;
         })
         .attr('text-anchor', 'middle')
         .attr('font-size', 11)
