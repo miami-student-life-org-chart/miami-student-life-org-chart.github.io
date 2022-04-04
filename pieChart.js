@@ -446,7 +446,7 @@ class PieChart {
           selector: 'pie-percent-texts',
           data: d => [d]
         })
-        .text(d => d.data.string.length>0 ? d.data.string : '')
+        .text(d => d.data.string.length> 0 ? d.data.string : '')
         .attr('alignment-baseline', 'middle')
         .attr('x', d => {
           let textWidth =
@@ -455,7 +455,9 @@ class PieChart {
             percentCircleRadius;
           if (this.isRightSide(d)) {
             textWidth = -textWidth;
-          return arcLabel.centroid(this.correct(d))[0] - textWidth/2 + 5;
+            if(d.data.string == "Center for Student Engagement, Activities, and Leadership") return arcLabel.centroid(this.correct(d))[0] - textWidth/1.5;
+            else
+            return arcLabel.centroid(this.correct(d))[0] - textWidth/2;
           } else {
           return arcLabel.centroid(this.correct(d))[0] * 1.15 + 2;
           }
