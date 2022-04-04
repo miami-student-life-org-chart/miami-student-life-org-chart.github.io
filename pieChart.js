@@ -139,12 +139,19 @@ class PieChart {
         .attr('y', -calc.innerRadius *1.5)
         .attr('width', calc.innerRadius * 3)
         .attr('height', calc.innerRadius * 3);
-  
+
+      if(data[0].string != "Rinella Learning Center") {
       fo.patternify({ tag: 'xhtml:div', selector: 'for-center-div' })
         .html(`<div style="display:flex; justify-content:center; align-items:center; text-align:center">
-               <img alt = "${image.substring(21,)}" height="${calc.innerRadius * 3}" style="object-fit: cover; object-position: 0px -12px; border:1px solid #EFDB72; border-radius:${calc.innerRadius * 1.5}px" width="${calc.innerRadius * 3}" src="${image}" />
+               <img alt = "${image.substring(21,)}" height="${calc.innerRadius * 3}" style="object-fit: cover; object-position: 0 -12.5px; border:1px solid #EFDB72; border-radius:${calc.innerRadius * 1.5}px" width="${calc.innerRadius * 3}" src="${image}" />
                </div></div>`);
+    } else{
+      fo.patternify({ tag: 'xhtml:div', selector: 'for-center-div' })
+      .html(`<div style="display:flex; justify-content:center; align-items:center; text-align:center">
+             <img alt = "${image.substring(21,)}" height="${calc.innerRadius * 3}" style="object-fit: cover; object-position: 0 0; border:1px solid #EFDB72; border-radius:${calc.innerRadius * 1.5}px" width="${calc.innerRadius * 3}" src="${image}" />
+             </div></div>`);
     }
+  }
   
     setLayouts() {
       const { calc } = this.getState();
