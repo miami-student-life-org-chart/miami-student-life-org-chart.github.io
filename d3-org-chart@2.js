@@ -1292,7 +1292,7 @@
           t.readAsDataURL(a.response);
       }),
         a.open("GET", t),
-        a.setRequestHeader('Access-Control-Allow-Origin','https://www.miamioh.edu'),
+        a.setRequestHeader('Access-Control-Allow-Origin','*'),
         // a.setRequestHeader('Access-Control-Allow-Headers', '*'),
         (a.responseType = "blob"),
         a.send();
