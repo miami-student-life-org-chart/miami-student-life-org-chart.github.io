@@ -132,7 +132,7 @@
                 var img = new Image()
                 img.src = base64;
                 img.onload = function () {
-                  pdf.addImage(img, 'JPEG', 50,50,500,500);
+                  pdf.addImage(img, 'JPEG', 5, 5, 595 / 3, img.height / img.width * 595 / 3);
                   pdf.save('Miami_Student_Life_Org_Chart.pdf');
                 }
 
