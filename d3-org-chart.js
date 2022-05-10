@@ -1400,7 +1400,7 @@ export class OrgChart {
         svg.transition().call(zoomBehavior.scaleBy, 0.78);
     }
 
-    toDataURL(url, callback) {
+    toDataURL(url, callback) { 
         var xhr = new XMLHttpRequest();
         xhr.onload = function () {
             var reader = new FileReader();
