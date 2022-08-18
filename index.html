@@ -78,8 +78,8 @@
                     <div style="position:absolute; left:180px; top:-20px; height:210px" class="row d-flex align-content-center person-info">
                     ${d.data.libguides_id ? `
                     <a href="https://libguides.lib.miamioh.edu/prf.php?account_id=${d.data.libguides_id}" target="_blank">
-                      <div style="font-size:16px; color:#AD102A;">${d.data.first_name} ${d.data.last_name}</div></a>` :
-                      `<div style="font-size:16px; color:#AD102A;">${d.data.first_name} ${d.data.last_name}</div> `}
+                      <div style="font-size:16px; color:#AD102A; max-width:97%;">${d.data.first_name} ${d.data.last_name}</div></a>` :
+                      `<div style="font-size:16px; color:#AD102A; max-width:97%;">${d.data.first_name} ${d.data.last_name}</div> `}
                     <div style="max-width:300px; font-size:12px; overflow-wrap: break-word;"> ${d.data.title || ''} </div>
                     <div class="d-flex justify-content-row mb-1">
                     ${d.data.email ? `
